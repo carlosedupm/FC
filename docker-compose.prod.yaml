@@ -1,0 +1,15 @@
+services:
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - 8000:8000
+
+  postgres:
+    image: postgres:17.0-alpine3.20
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=django
+      - POSTGRES_PASSWORD=root

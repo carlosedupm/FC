@@ -1,0 +1,9 @@
+FROM python:3.12.6-slim
+
+RUN pip install pipenv
+
+RUN useradd -ms /bin/bash myuser
+
+USER myuser
+
+CMD [ "tail", "-f", "/dev/null" ]
